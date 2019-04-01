@@ -30,11 +30,15 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey("d"))
         {
-            rb.AddForce(sidwaysForce * Time.deltaTime, 0, 0);
+            rb.AddForce(sidwaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
         if (Input.GetKey("a"))
         {
-            rb.AddForce(-sidwaysForce * Time.deltaTime, 0, 0);
+            rb.AddForce(-sidwaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        }
+        if (rb.position.y < -1f)
+        {
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }
