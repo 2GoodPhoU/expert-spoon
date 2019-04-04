@@ -36,6 +36,10 @@ public class Player_Movement : MonoBehaviour
         {
             rb.AddForce(-sidwaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+        if (Input.GetKey("w"))
+        {
+            rb.AddForce(0, -sidwaysForce * Time.deltaTime, 0, ForceMode.VelocityChange);
+        }
         if (rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();
